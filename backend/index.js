@@ -4,7 +4,12 @@ const app = express();
 const sequelize = require('./config/database');
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Your frontend URL
+    methods: 'GET,POST,PUT,DELETE', // Allowed methods
+    allowedHeaders: 'Content-Type,Authorization' // Allowed headers
+}));
+
 app.use(express.json());
 
 // Import routes
