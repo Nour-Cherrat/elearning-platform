@@ -1,7 +1,13 @@
 import React from 'react';
+import Course from './Course';
 
 const Dashboard = () => {
-    return <h1>Dashboard</h1>;
+    return (
+        <div>
+            <h1>Dashboard</h1>
+            <Course /> {/* Display the list of courses */}
+        </div>
+    );
 };
 
 export default Dashboard;
