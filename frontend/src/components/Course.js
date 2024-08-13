@@ -21,7 +21,7 @@ const Course = () => {
             ) : (
                 <ul>
                     {courses.map(course => (
-                        <li key={course.id}>{course.name}</li>
+                        <li key={course.id}>{course.title}</li>
                     ))}
                 </ul>
             )}
