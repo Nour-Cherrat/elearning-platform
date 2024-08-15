@@ -14,14 +14,16 @@ const Course = () => {
 
     return (
         <div>
-            <h1>Course Page</h1>
             {error && <p>{error}</p>}
             {courses.length === 0 ? (
                 <p>No courses available</p>
             ) : (
                 <ul>
                     {courses.map(course => (
-                        <li key={course.id}>{course.title}</li>
+                        <li key={course.id} className="course-item">
+                            <h3>{course.title}</h3>
+                            <p><u>Description :</u> {course.description}</p>
+                        </li>
                     ))}
                 </ul>
             )}
