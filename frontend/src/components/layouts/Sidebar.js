@@ -1,12 +1,19 @@
 import React from 'react';
 import '../../assets/Style.css'; // CSS file for styling
-import { FaUsers, FaChalkboardTeacher, FaBook, FaClipboardList, FaChartLine, FaCog } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaUsers, FaChalkboardTeacher, FaBook, FaClipboardList, FaChartLine, FaCog } from 'react-icons/fa';
+import {FaChartColumn} from "react-icons/fa6"; // Importing icons from react-icons
 
 const Sidebar = () => {
     return (
         <aside className="sidebar">
             <nav className="sidebar-nav">
                 <ul className="menu">
+                    <li>
+                        <a href="/dashboard">
+                            <FaChartColumn className="menu-icon" />
+                            <span>Admin Dashboard</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="#manage-users">
                             <FaUsers className="menu-icon" />
@@ -23,7 +30,7 @@ const Sidebar = () => {
                             <span>Course Management</span>
                         </a>
                         <ul className="submenu">
-                            <li><a href="#manage-courses">Courses</a></li>
+                            <li><a href="/course">Courses</a></li>
                             <li><a href="#manage-lessons">Lessons</a></li>
                             <li><a href="#manage-quizzes">Quizzes</a></li>
                         </ul>
