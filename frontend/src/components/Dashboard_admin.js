@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/Dashboard.css';
 import Course from "./Course";
+import Header from "./layouts/Header";
 
 const Dashboard_admin = () => {
     // State to hold the statistics
@@ -30,6 +31,7 @@ const Dashboard_admin = () => {
 
     return (
         <div className="admin-dashboard">
+            <Header />
             <header className="admin-dashboard-header">
                 <h1>Admin Dashboard</h1>
                 <p>Overview of platform statistics</p>
