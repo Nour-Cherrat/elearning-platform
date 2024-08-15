@@ -4,7 +4,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard_admin from './components/Dashboard_admin';
-import Course from './components/Course';
+import Course from './components/courses/Course';
+import AddCourse from "./components/courses/addCourse";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -12,6 +13,7 @@ const routes = [
     { path: '/register', element: <Register /> },
     { path: '/dashboard', element: <Dashboard_admin /> },
     { path: '/course', element: <Course /> },
+    { path: '/addCourse', element: <AddCourse /> },
 ];
 
 export default routes;

@@ -192,4 +192,19 @@ html, body {
     background: #555; /* Handle color on hover */
 }
 
+/**************************************************/
+/********************* Course *********************/
+/**************************************************/
 
+.admin-course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.header-title {
+    flex: 1;
+}
