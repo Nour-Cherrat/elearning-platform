@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/Header.css';
+import '../../assets/Style.css';
 import { FaUser, FaCog } from 'react-icons/fa';
 
 const Header = () => {
