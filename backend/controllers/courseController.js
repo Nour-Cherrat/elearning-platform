@@ -57,3 +57,14 @@ exports.deleteCourse = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+// Count all courses
+exports.getCourseCount = async (req, res) => {
+    try {
+        // Correctly using the count method on the Course model
+        const count = await Course.count();
+        res.status(200).json({ count });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
