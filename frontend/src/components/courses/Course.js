@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from "../layouts/Header";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row, Table, Button } from "react-bootstrap";
 import Sidebar from "../layouts/Sidebar";
-import {FaPlus} from "react-icons/fa6";
-import {Link} from "react-router-dom";
-import addCourse from "./addCourse";
+import { FaPlus, FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const Course = () => {
     const [courses, setCourses] = useState([]);
     const [error, setError] = useState(null); // To handle errors
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch data from the backend
@@ -18,9 +18,16 @@ const Course = () => {
             .catch(error => setError('Error fetching courses'));
     }, []);
 
-    // Handler for the button click
-    const handleAddCourse = () => {
-        alert('Add New Course button clicked!');
+
+    const handleDeleteCourse = (id) => {
+        if (window.confirm(`Are you sure you want to delete course with ID: ${id}?`)) {
+            axios.delete(`http://localhost:5000/api/courses/${id}`)
+                .then(() => {
+                    setCourses(courses.filter(course => course.id !== id));
+                    alert('Course deleted successfully');
+                })
+                .catch(error => setError('Error deleting course'));
+        }
     };
 
     return (
@@ -48,14 +55,34 @@ const Course = () => {
                             {courses.length === 0 ? (
                                 <p>No courses available</p>
                             ) : (
-                                <ul>
-                                    {courses.map(course => (
-                                        <li key={course.id} className="course-item">
-                                            <h3>{course.title}</h3>
-                                            <p><u>Description :</u> {course.description}</p>
-                                        </li>
+                                <Table bordered hover responsive>
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Teacher's Name</th>
+                                        <th>Number of Students</th>
+                                        <th>Number of Lessons</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {courses.map((course, index) => (
+                                        <tr key={course.id}>
+                                            <td className={"center"}>{index + 1}</td>
+                                            <td>{course.title}</td>
+                                            <td>Jhon Doe</td>
+                                            <td className={"center"}>--</td>
+                                            <td className={"center"}>--</td>
+                                            <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleDeleteCourse(course.id)}>
+                                                    <FaTrash />
+                                                </Button>
+                                            </td>
+                                        </tr>
                                     ))}
-                                </ul>
+                                    </tbody>
+                                </Table>
                             )}
                         </main>
                     </Col>
