@@ -208,3 +208,7 @@ html, body {
 .header-title {
     flex: 1;
 }
+
+th, .center {
+    text-align: center;
+}
