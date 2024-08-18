@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Course = () => {
     const [courses, setCourses] = useState([]);
-    const [error, setError] = useState(null); // To handle errors
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,6 +18,9 @@ const Course = () => {
             .catch(error => setError('Error fetching courses'));
     }, []);
 
+    const handleEditCourse = (id) => {
+        navigate(`/courses/edit/${id}`);
+    };
 
     const handleDeleteCourse = (id) => {
         if (window.confirm(`Are you sure you want to delete course with ID: ${id}?`)) {
@@ -75,6 +78,9 @@ const Course = () => {
                                             <td className={"center"}>--</td>
                                             <td className={"center"}>--</td>
                                             <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleEditCourse(course.id)}>
+                                                    <FaEdit />
+                                                </Button>
                                                 <Button variant="link" onClick={() => handleDeleteCourse(course.id)}>
                                                     <FaTrash />
                                                 </Button>
