@@ -10,6 +10,7 @@ import UpdateCourse from "./components/courses/updateCourse";
 import DetailsCourse from "./components/courses/detailsCourse";
 import User from "./components/users/User";
 import AddUser from "./components/users/addUser";
+import UpdateUser from "./components/users/updateUser";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -24,6 +25,7 @@ const routes = [
 
     { path: '/user', element: <User /> },
     { path: '/addUser', element: <AddUser /> },
+    { path: '/users/edit/:id', element: <UpdateUser /> },
 ];
 
 export default routes;

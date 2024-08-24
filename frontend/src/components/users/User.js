@@ -17,6 +17,10 @@ const User = () => {
             .catch(error => setError('Error fetching users'));
     }, []);
 
+    const handleEditUser = (id) => {
+        navigate(`/users/edit/${id}`);
+    };
+
     const handleDeleteUser = (id) => {
         if (window.confirm(`Are you sure you want to delete user with ID: ${id}?`)) {
             axios.delete(`http://localhost:5000/api/users/${id}`)
@@ -73,6 +77,9 @@ const User = () => {
                                             <td className={"center"}>{user.email}</td>
                                             <td className={"center"}>{user.role}</td>
                                             <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleEditUser(user.id)}>
+                                                    <FaEdit />
+                                                </Button>
                                                 <Button variant="link" onClick={() => handleDeleteUser(user.id)}>
                                                     <FaTrash />
                                                 </Button>
