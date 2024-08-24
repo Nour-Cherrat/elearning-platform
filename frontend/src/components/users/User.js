@@ -17,6 +17,17 @@ const User = () => {
             .catch(error => setError('Error fetching users'));
     }, []);
 
+    const handleDeleteUser = (id) => {
+        if (window.confirm(`Are you sure you want to delete user with ID: ${id}?`)) {
+            axios.delete(`http://localhost:5000/api/users/${id}`)
+                .then(() => {
+                    setUsers(users.filter(user => user.id !== id));
+                    alert('User deleted successfully');
+                })
+                .catch(error => setError('Error deleting user'));
+        }
+    };
+
     return (
         <div className="admin-dashboard">
             <Header />
@@ -62,6 +73,9 @@ const User = () => {
                                             <td className={"center"}>{user.email}</td>
                                             <td className={"center"}>{user.role}</td>
                                             <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleDeleteUser(user.id)}>
+                                                    <FaTrash />
+                                                </Button>
                                             </td>
                                         </tr>
                                     ))}
