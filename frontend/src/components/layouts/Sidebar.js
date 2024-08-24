@@ -20,6 +20,7 @@ const Sidebar = () => {
                             <span>Manage Users</span>
                         </a>
                         <ul className="submenu">
+                            <li><a href="/user">All users</a></li>
                             <li><a href="#manage-students">Students</a></li>
                             <li><a href="#manage-teachers">Teachers</a></li>
                         </ul>
@@ -31,17 +32,6 @@ const Sidebar = () => {
                         </a>
                         <ul className="submenu">
                             <li><a href="/course">Courses</a></li>
-                            <li><a href="#manage-lessons">Lessons</a></li>
-                            <li><a href="#manage-quizzes">Quizzes</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#course-management">
-                            <FaBook className="menu-icon" />
-                            <span>Course Management</span>
-                        </a>
-                        <ul className="submenu">
-                            <li><a href="#manage-courses">Courses</a></li>
                             <li><a href="#manage-lessons">Lessons</a></li>
                             <li><a href="#manage-quizzes">Quizzes</a></li>
                         </ul>

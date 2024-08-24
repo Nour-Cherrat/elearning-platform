@@ -8,16 +8,20 @@ import Course from './components/courses/Course';
 import AddCourse from "./components/courses/addCourse";
 import UpdateCourse from "./components/courses/updateCourse";
 import DetailsCourse from "./components/courses/detailsCourse";
+import User from "./components/users/User";
 
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/login', element: <Login /> },
     { path: '/register', element: <Register /> },
     { path: '/dashboard', element: <Dashboard_admin /> },
+
     { path: '/course', element: <Course /> },
     { path: '/addCourse', element: <AddCourse /> },
     { path: '/courses/edit/:id', element: <UpdateCourse /> },
     { path: '/courses/details/:id', element: <DetailsCourse /> },
+
+    { path: '/user', element: <User /> },
 ];
 
 export default routes;
