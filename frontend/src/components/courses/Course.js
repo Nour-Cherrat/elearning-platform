@@ -12,11 +12,14 @@ const Course = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch data from the backend
         axios.get('http://localhost:5000/api/courses')
             .then(response => setCourses(response.data))
             .catch(error => setError('Error fetching courses'));
     }, []);
+
+    const handleViewCourse = (id) => {
+        navigate(`/courses/details/${id}`);
+    };
 
     const handleEditCourse = (id) => {
         navigate(`/courses/edit/${id}`);
@@ -78,6 +81,9 @@ const Course = () => {
                                             <td className={"center"}>--</td>
                                             <td className={"center"}>--</td>
                                             <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleViewCourse(course.id)}>
+                                                    <FaEye />
+                                                </Button>
                                                 <Button variant="link" onClick={() => handleEditCourse(course.id)}>
                                                     <FaEdit />
                                                 </Button>

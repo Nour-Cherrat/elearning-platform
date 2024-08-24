@@ -7,6 +7,7 @@ import Dashboard_admin from './components/Dashboard_admin';
 import Course from './components/courses/Course';
 import AddCourse from "./components/courses/addCourse";
 import UpdateCourse from "./components/courses/updateCourse";
+import DetailsCourse from "./components/courses/detailsCourse";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -16,6 +17,7 @@ const routes = [
     { path: '/course', element: <Course /> },
     { path: '/addCourse', element: <AddCourse /> },
     { path: '/courses/edit/:id', element: <UpdateCourse /> },
+    { path: '/courses/details/:id', element: <DetailsCourse /> },
 ];
 
 export default routes;
