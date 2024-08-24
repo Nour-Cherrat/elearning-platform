@@ -17,6 +17,10 @@ const User = () => {
             .catch(error => setError('Error fetching users'));
     }, []);
 
+    const handleViewUser = (id) => {
+        navigate(`/users/details/${id}`);
+    };
+
     const handleEditUser = (id) => {
         navigate(`/users/edit/${id}`);
     };
@@ -77,6 +81,9 @@ const User = () => {
                                             <td className={"center"}>{user.email}</td>
                                             <td className={"center"}>{user.role}</td>
                                             <td className={"center"}>
+                                                <Button variant="link" onClick={() => handleViewUser(user.id)}>
+                                                    <FaEye />
+                                                </Button>
                                                 <Button variant="link" onClick={() => handleEditUser(user.id)}>
                                                     <FaEdit />
                                                 </Button>
