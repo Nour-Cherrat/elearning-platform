@@ -22,7 +22,7 @@ const Sidebar = () => {
                         <ul className="submenu">
                             <li><a href="/user">All users</a></li>
                             <li><a href="/users/students">Students</a></li>
-                            <li><a href="#manage-teachers">Teachers</a></li>
+                            <li><a href="/users/teachers">Teachers</a></li>
                         </ul>
                     </li>
                     <li>
