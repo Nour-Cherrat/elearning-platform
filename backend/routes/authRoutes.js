@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { User } = require('../models'); // Import User model from Sequelize
+const { User } = require('../models');
 
 // Register route
 router.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { fname, lname, email, password, role } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = await User.create({ name, email, password: hashedPassword });
+        const newUser = await User.create({ fname, lname, email, password: hashedPassword, role });
         res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ error: error.message });
