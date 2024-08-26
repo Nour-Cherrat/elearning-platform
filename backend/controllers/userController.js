@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Course} = require('../models');
 
 // Create a new user
 exports.createUser = async (req, res) => {
@@ -53,6 +53,26 @@ exports.deleteUser = async (req, res) => {
         } else {
             res.status(404).json({ error: 'User not found' });
         }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// Count all users and users by role
+exports.getUserCount = async (req, res) => {
+    try {
+        const totalCount = await User.count();
+
+        const adminCount = await User.count({ where: { role: 'admin' } });
+        const teacherCount = await User.count({ where: { role: 'teacher' } });
+        const studentCount = await User.count({ where: { role: 'student' } });
+
+        res.status(200).json({
+            totalUsers: totalCount,
+            totalAdmins: adminCount,
+            totalTeachers: teacherCount,
+            totalStudents: studentCount
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
