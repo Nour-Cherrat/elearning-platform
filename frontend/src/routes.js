@@ -12,6 +12,7 @@ import User from "./components/users/User";
 import AddUser from "./components/users/addUser";
 import UpdateUser from "./components/users/updateUser";
 import DetailsUser from "./components/users/detailsUser";
+import Students from "./components/users/Students";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -28,6 +29,7 @@ const routes = [
     { path: '/addUser', element: <AddUser /> },
     { path: '/users/edit/:id', element: <UpdateUser /> },
     { path: '/users/details/:id', element: <DetailsUser /> },
+    { path: '/users/students', element: <Students /> },
 ];
 
 export default routes;
