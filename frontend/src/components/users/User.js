@@ -8,10 +8,20 @@ import { Link, useNavigate } from "react-router-dom";
 
 const User = () => {
     const [users, setUsers] = useState([]);
+    const [stats, setStats] = useState({
+        totalUsers: 0,
+        totalAdmins: 0,
+        totalTeachers: 0,
+        totalStudents: 0,
+    });
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
+        axios.get('http://localhost:5000/api/users/count')
+            .then(response => setStats(response.data))
+            .catch(error => setError('Error fetching user statistics'));
+
         axios.get('http://localhost:5000/api/users')
             .then(response => setUsers(response.data))
             .catch(error => setError('Error fetching users'));
@@ -56,6 +66,22 @@ const User = () => {
                                     Add New User
                                 </Link>
                             </header>
+                            &nbsp;
+
+                            <section className="stats-grid-user">
+                                <div className="stat-card">
+                                    <h2>Total Users</h2>
+                                    <p>{stats.totalUsers}</p>
+                                </div>
+                                <div className="stat-card">
+                                    <h2>Users by Role</h2>
+                                    <ul>
+                                        <li>Admin: {stats.totalAdmins}</li>
+                                        <li>Teacher: {stats.totalTeachers}</li>
+                                        <li>Student: {stats.totalStudents}</li>
+                                    </ul>
+                                </div>
+                            </section>
 
                             {error && <p>{error}</p>}
                             {users.length === 0 ? (
