@@ -224,9 +224,9 @@ th, .center {
     margin-bottom: 20px;
 }
 
-/*************************************************/
-/********************* Login *********************/
-/*************************************************/
+/***********************************************************/
+/********************* Login/ Register *********************/
+/***********************************************************/
 
 .login-container {
     display: flex;
@@ -260,7 +260,8 @@ th, .center {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -279,4 +280,12 @@ input[type="password"] {
 
 .error-message {
     color: red;
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
 }
